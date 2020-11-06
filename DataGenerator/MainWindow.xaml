@@ -6,19 +6,19 @@
         xmlns:local="clr-namespace:DataGenerator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
+    <Grid Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Margin="0,0,0,-116">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <ComboBox x:Name="Format_CB" HorizontalAlignment="Left" Margin="4,22,0,0" VerticalAlignment="Top" Width="119" SelectionChanged="Format_CB_SelectionChanged"/>
-        <TextBox x:Name="Result_TB" HorizontalAlignment="Left" Margin="90,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="344" Height="381" Grid.Column="2"/>
+        <TextBox x:Name="Result_TB" HorizontalAlignment="Left" Margin="90,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="344" Height="381" Grid.Column="2" IsReadOnly="True" FontFamily="Cambria Math" FontSize="14" TextAlignment="Justify" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"/>
         <ComboBox x:Name="Type_CB" HorizontalAlignment="Left" Margin="4,49,0,0" VerticalAlignment="Top" Width="120" Visibility="Visible" SelectionChanged="Type_CB_SelectionChanged" IsVisibleChanged="Type_CB_IsVisibleChanged"/>
         <TextBox x:Name="MinVal_TB" HorizontalAlignment="Left" Margin="10,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="19" Visibility="Visible" Grid.Column="1"/>
         <TextBox x:Name="MaxVal_TB" HorizontalAlignment="Left" Margin="85,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="19" Visibility="Visible"  Grid.Column="1"/>
         <TextBox x:Name="Size_TB" HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" MaxLines="1" MaxLength="4" VerticalAlignment="Top" Width="90" Grid.Column="1"/>
-        <Button x:Name="Generate_Btn" Content="Generate" HorizontalAlignment="Left" Margin="10,352,0,0" VerticalAlignment="Top" Height="23" Width="60" Click="Generate_Btn_Click"/>
+        <Button x:Name="Generate_Btn" Content="Generate" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" Height="23" Width="60" Click="Generate_Btn_Click"/>
         <CheckBox x:Name="Range_CB" Content="Custom range" HorizontalAlignment="Left" Margin="4,106,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="Separator_CB" Content="Custom separator" HorizontalAlignment="Left" Margin="4,135,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Separator_TB" HorizontalAlignment="Left" Margin="10,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="16" Grid.Column="1"/>
@@ -27,6 +27,16 @@
         <RadioButton x:Name="No_Separator_RB" Content="No Separator" HorizontalAlignment="Left" Margin="4,185,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="Custom_Separator_RB" Content="Custom Separator" HorizontalAlignment="Left" Margin="4,205,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Lorem_separator_TB" Grid.Column="1" HorizontalAlignment="Left" Margin="10,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Matrix_X" Grid.Column="1" HorizontalAlignment="Left" Margin="10,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="Matrix_Y" Grid.Column="1" HorizontalAlignment="Center" Margin="0,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+        <ListBox x:Name="Diagonal_LB" Margin="10,0,0,0" SelectionMode="Single" HorizontalAlignment="Left" VerticalAlignment="Center" Width="98" Height="44">
+            <ListBox.Background>
+                <SolidColorBrush Color="White" Opacity="0.5"/>
+            </ListBox.Background>
+            <ListBoxItem Content="Upper Diagonal"/>
+            <ListBoxItem Content="Lower Diagonal"/>
+        </ListBox>
+        <Label x:Name="Matrix_Size_Lbl" Content="Size (x , y)" HorizontalAlignment="Left" Margin="16,223,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

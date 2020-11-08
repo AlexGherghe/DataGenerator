@@ -1,42 +1,83 @@
-﻿<Window x:Class="DataGenerator.MainWindow"
+﻿<Window xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  x:Class="DataGenerator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataGenerator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Margin="0,0,0,-116">
+        Title="MainWindow" Height="450" Width="800" 
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="14"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Background="{DynamicResource MaterialDesignDarkBackground}">
+   
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*"/>
-            <ColumnDefinition Width="0.5*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto" MinWidth="120"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="Format_CB" HorizontalAlignment="Left" Margin="4,22,0,0" VerticalAlignment="Top" Width="119" SelectionChanged="Format_CB_SelectionChanged"/>
-        <TextBox x:Name="Result_TB" HorizontalAlignment="Left" Margin="90,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="344" Height="381" Grid.Column="2" IsReadOnly="True" FontFamily="Cambria Math" FontSize="14" TextAlignment="Justify" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"/>
-        <ComboBox x:Name="Type_CB" HorizontalAlignment="Left" Margin="4,49,0,0" VerticalAlignment="Top" Width="120" Visibility="Visible" SelectionChanged="Type_CB_SelectionChanged" IsVisibleChanged="Type_CB_IsVisibleChanged"/>
-        <TextBox x:Name="MinVal_TB" HorizontalAlignment="Left" Margin="10,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="19" Visibility="Visible" Grid.Column="1"/>
-        <TextBox x:Name="MaxVal_TB" HorizontalAlignment="Left" Margin="85,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="19" Visibility="Visible"  Grid.Column="1"/>
-        <TextBox x:Name="Size_TB" HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" MaxLines="1" MaxLength="4" VerticalAlignment="Top" Width="90" Grid.Column="1"/>
-        <Button x:Name="Generate_Btn" Content="Generate" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" Height="23" Width="60" Click="Generate_Btn_Click"/>
-        <CheckBox x:Name="Range_CB" Content="Custom range" HorizontalAlignment="Left" Margin="4,106,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Separator_CB" Content="Custom separator" HorizontalAlignment="Left" Margin="4,135,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Separator_TB" HorizontalAlignment="Left" Margin="10,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Height="16" Grid.Column="1"/>
-        <Label x:Name="Size_Lbl" Content="Size" HorizontalAlignment="Left" Margin="21,77,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="Space_RB" Content="Space" HorizontalAlignment="Left" Margin="4,165,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="No_Separator_RB" Content="No Separator" HorizontalAlignment="Left" Margin="4,185,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="Custom_Separator_RB" Content="Custom Separator" HorizontalAlignment="Left" Margin="4,205,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Lorem_separator_TB" Grid.Column="1" HorizontalAlignment="Left" Margin="10,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Matrix_X" Grid.Column="1" HorizontalAlignment="Left" Margin="10,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-        <TextBox x:Name="Matrix_Y" Grid.Column="1" HorizontalAlignment="Center" Margin="0,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
-        <ListBox x:Name="Diagonal_LB" Margin="10,0,0,0" SelectionMode="Single" HorizontalAlignment="Left" VerticalAlignment="Center" Width="98" Height="44">
-            <ListBox.Background>
-                <SolidColorBrush Color="White" Opacity="0.5"/>
-            </ListBox.Background>
+        <ComboBox x:Name="Format_CB" Grid.Column="1" Grid.Row="1" SelectionChanged="Format_CB_SelectionChanged" Margin="0,0,5,5"/>
+        <TextBox x:Name="Result_TB"  Grid.Column="3" Grid.Row="1" Grid.RowSpan="10" IsReadOnly="True" 
+                 FontSize="14" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" 
+                 Margin="5,0,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}"/>
+        <ComboBox x:Name="Type_CB" Grid.Column="1" Grid.Row="2" SelectionChanged="Type_CB_SelectionChanged" IsVisibleChanged="Type_CB_IsVisibleChanged"
+                  Margin="0,5,5,5"/>
+        <Label x:Name="Size_Lbl" Content="Size" Grid.Column="1" Grid.Row="3" Margin="0,5,5,5" HorizontalAlignment="Center"/>
+        <TextBox x:Name="Size_TB" MaxLines="1" MaxLength="4" Grid.Column="2" Grid.Row="3" 
+                 HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,5"/>
+        <CheckBox x:Name="Range_CB" Content="Custom range" Grid.Column="1" Grid.Row="4" Margin="0,5,5,5"/>
+        <Grid x:Name="arr_range_grid" Grid.Column="2" Grid.Row="4" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="MinVal_TB" TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center" Margin="5,5"/>
+            <TextBox x:Name="MaxVal_TB" TextWrapping="Wrap" Grid.Column="1" VerticalAlignment="Center" Margin="5,5"/>
+        </Grid>
+        <CheckBox x:Name="Separator_CB" Content="Custom separator" Grid.Column="1" Grid.Row="5" Margin="0,5,5,5"/>
+        <TextBox x:Name="Separator_TB" TextWrapping="Wrap" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" Margin="5,5"/>
+        <StackPanel x:Name="lorem_sep_stack" Grid.Column="1" Grid.Row="6" Margin="0,5,5,5">
+            <RadioButton x:Name="Space_RB" Content="Space" Margin="0,0,0,2.5"/>
+            <RadioButton x:Name="No_Separator_RB" Content="No Separator" Margin="0,0,0,2.5"/>
+            <RadioButton x:Name="Custom_Separator_RB" Content="Custom Separator"/>
+        </StackPanel>
+        <TextBox x:Name="Lorem_separator_TB" Grid.Column="2" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="5,5"/>
+        <Label x:Name="Matrix_Size_Lbl" Content="Size (x , y)" Grid.Column="1" Grid.Row="7" Margin="0,5,5,5"/>
+        <Grid x:Name="matrix_size_grid" Grid.Column="2" Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="Matrix_X" TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center" Margin="5,5"/>
+            <TextBox x:Name="Matrix_Y" TextWrapping="Wrap" Grid.Column="1" VerticalAlignment="Center" Margin="5,5"/>
+        </Grid>
+        <ListBox x:Name="Diagonal_LB" SelectionMode="Single" Grid.Column="1" Grid.Row="8" Margin="0,5,5,5" Style="{DynamicResource MaterialDesignToolToggleFlatListBox}" ItemContainerStyle="{DynamicResource MaterialDesignChoiceChipPrimaryOutlineListBoxItem}" 
+                 VerticalAlignment="Center" HorizontalAlignment="Center" Background="{DynamicResource MaterialDesignDarkBackground}" >
+       
             <ListBoxItem Content="Upper Diagonal"/>
             <ListBoxItem Content="Lower Diagonal"/>
         </ListBox>
-        <Label x:Name="Matrix_Size_Lbl" Content="Size (x , y)" HorizontalAlignment="Left" Margin="16,223,0,0" VerticalAlignment="Top"/>
-
+        <Button x:Name="Generate_Btn" Content="Generate" Grid.Column="1" Grid.Row="9" Click="Generate_Btn_Click" Margin="0,5,5,5">
+        </Button>
     </Grid>
 </Window>

@@ -409,7 +409,7 @@ namespace DataGenerator
                             result += rand.Next(Math.Min(min, max), Math.Max(min, max));
                     }
                     if (j == cols - 1)  //last item of line
-                        result += "\n";
+                        result += "\r\n";
                     else result += separator;
                 }
             result = result.Remove(result.Length - separator.Length);

@@ -10,13 +10,17 @@
         TextElement.FontWeight="Regular"
         TextElement.FontSize="14"
         TextOptions.TextFormattingMode="Ideal" 
-        TextOptions.TextRenderingMode="Auto"        
+        TextOptions.TextRenderingMode="Auto"      
+        materialDesign:ThemeAssist.Theme="Dark"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="{DynamicResource MaterialDesignDarkBackground}">
-   
+    <ScrollViewer>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -37,7 +41,7 @@
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <ComboBox x:Name="Format_CB" Grid.Column="1" Grid.Row="1" SelectionChanged="Format_CB_SelectionChanged" Margin="0,0,5,5"/>
-        <TextBox x:Name="Result_TB"  Grid.Column="3" Grid.Row="1" Grid.RowSpan="10" IsReadOnly="True" 
+        <TextBox x:Name="Result_TB"  Grid.Column="3" Grid.Row="1" Grid.RowSpan="13" IsReadOnly="True" 
                  FontSize="14" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" 
                  Margin="5,0,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}"/>
         <ComboBox x:Name="Type_CB" Grid.Column="1" Grid.Row="2" SelectionChanged="Type_CB_SelectionChanged" IsVisibleChanged="Type_CB_IsVisibleChanged"
@@ -77,7 +81,13 @@
             <ListBoxItem Content="Upper Diagonal"/>
             <ListBoxItem Content="Lower Diagonal"/>
         </ListBox>
-        <Button x:Name="Generate_Btn" Content="Generate" Grid.Column="1" Grid.Row="9" Click="Generate_Btn_Click" Margin="0,5,5,5">
-        </Button>
+        <StackPanel x:Name="Obj_SP" Grid.Column="1" Grid.Row="9" Margin="0,5,5,5">
+        </StackPanel>
+        <ComboBox Name="Obj_CB" Grid.Column="1" Grid.Row="10" Margin="0,5,5,5" SelectionChanged="Obj_CB_SelectionChanged"
+                  PreviewMouseWheel ="Obj_CB_PreviewMouseWheel"></ComboBox>
+        <Button x:Name="Clear_Btn" Content="Clear" Grid.Column="1" Grid.Row="12" Margin="0,5,5,5" Click="Clear_Btn_Click"></Button>
+        <Button x:Name="Generate_Btn" Content="Generate" Grid.Column="1" Grid.Row="11" Click="Generate_Btn_Click" Margin="0,5,5,5"/>
+
     </Grid>
+    </ScrollViewer>
 </Window>

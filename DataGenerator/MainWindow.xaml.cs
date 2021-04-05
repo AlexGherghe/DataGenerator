@@ -86,9 +86,15 @@ namespace DataGenerator
                     return;
                 }
 
+                if (len < 1)    //If the size is negative or 0
+                {
+                    MessageBox.Show("Size cannot be <1", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
                 if (Type_CB.Text.Equals("Float"))   //if "Float" is selected
                     is_float = true;
-                if (Range_CB.IsChecked == true)     //custom range
+                if (Range_CB.IsChecked == true)     //Parsing the custom range
                 {
                     int aux;
                     if (Int32.TryParse(MinVal_TB.Text, out aux) == true)
@@ -98,7 +104,7 @@ namespace DataGenerator
                 }
                 if (Separator_CB.IsChecked == true)     //if user wants a custom separator
                     separator = Separator_TB.Text;
-                Result_TB.Text = gen.num_arr(len, min, max, separator, is_float);
+                Result_TB.Text = gen.num_arr(len, min, max, separator, is_float);   //generating data
 
             }
             if (Type_CB.Text.Equals("Lorem Ipsum"))
@@ -106,9 +112,14 @@ namespace DataGenerator
                 String separator = " ";
                 int len;
 
-                if (Int32.TryParse(Size_TB.Text, out len) == false)
+                if (Int32.TryParse(Size_TB.Text, out len) == false) //if size is not a number
                 {
                     MessageBox.Show("Please select size", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+                if (len < 1)    //if size <1
+                {
+                    MessageBox.Show("Size cannot be <1", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
                 if (No_Separator_RB.IsChecked == true)
@@ -117,7 +128,7 @@ namespace DataGenerator
                     separator = " ";
                 else if (Custom_Separator_RB.IsChecked == true)
                     separator = Lorem_separator_TB.Text;
-                Result_TB.Text = gen.lorem_arr(len, separator);
+                Result_TB.Text = gen.lorem_arr(len, separator); //generate and display data
             }
         }
 
@@ -131,7 +142,12 @@ namespace DataGenerator
                 MessageBox.Show("Please select size", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
-            if (Range_CB.IsChecked == true)     //custom range
+            if (rows < 1 || columns < 1)    //if either size is <1
+            {
+                MessageBox.Show("Size cannot be <1", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+            if (Range_CB.IsChecked == true)     //Parsing custom range
             {
                 int aux;
                 if (Int32.TryParse(MinVal_TB.Text, out aux) == true)
@@ -158,8 +174,13 @@ namespace DataGenerator
             Object_Double obj_double = new Object_Double();
             Object_Char obj_char = new Object_Char();
             String result = new string("");
-            if (Int32.TryParse(Size_TB.Text, out aux) == true)
+            if (Int32.TryParse(Size_TB.Text, out aux) == true)  //parsing size
                 size = aux;
+            if (size < 1)
+            {
+                MessageBox.Show("Size cannot be <1", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             for (int i = 0; i < size; i++)
                 for (int j = 0; j < Obj_SP.Children.Count; j++)
                 {
